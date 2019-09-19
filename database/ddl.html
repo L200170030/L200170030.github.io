@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container" id="navbar">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation"><a href="index.html"><font color='White'><b>HOME</b></font></a></li>
+          <li role="presentation"><a href="#about"><font color='White'><b>ABOUT</b></font></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar -->
+
+  <!-- jumbotron -->
+  <div id="background">
+    <div class="jumbotron">
+	<h1><h1><font face="Swis721 BlkEx BT">Selamat Datang</font></h1>
+  <p><font face="Swis721 BlkEx BT">Learning is passion with you</font></p>
+    </div>
+  </div>
+  <!-- jumbotron -->
+
+  <!-- container atas -->
+  <div id="home">
+    <div class="isi">
+      <div class="container atas">
+        <h1><font color='red' face='Swis721 BlkEx BT'>DATA DEFINITION LANGUAGE</font></h1>
+        <div class="row">
+			<p class="text-left"><strong>Data Definition Language atau Data Description Language</strong> merupakan kumpulan perintah SQL yang digunakan untuk membuat, mengubah dan menghapus struktur dan definisi metadata dari objek-objek database.</br></br>
+
+      <strong>DDL (Data Definition Language)</strong> Seperti definisi yang telah dijelaskan di atas, DDL adalah kumpulan perintah 
+      SQL yang digunakan untuk membuat (create), mengubah (alter) dan menghapus (drop) struktur dan definisi tipe data dari objek-objek database.
+    </br></br>Objek-objek database pada yang dimaksud adalah sebagai berikut :</br>
+    -> Database</br>
+    -> Table</br>
+    -> View</br>
+    -> Index</br>
+    -> Procedure (Stored Procedure)</br>
+    -> Function</br>
+    -> Trigger</br></br>
+    <b>CONTOH :</b></br></br>
+
+    Perintah berikut akan membuat table pada database kita dengan nama "ms_karyawan"</br>
+    CREATE TABLE ms_karyawan (</br>
+      kode_cabang varchar(10) default NULL,</br>
+      kode_karyawan varchar(10) NOT NULL,</br>
+      nama_depan varchar(8) default NULL,</br>
+      nama_belakang varchar(9) default NULL,</br>
+      jenis_kelamin varchar(1) default NULL,</br>
+      PRIMARY KEY  (kode_karyawan) )</br></br>
+      
+    Daftar Perintah DDL pada MySQL 5.0</br>
+    Berikut adalah contoh perintah DDL yang digunakan pada MySQL. </br></br>
+    <b>Pembuatan (CREATE)</b></br></br>
+      - CREATE DATABASE</br>
+      - CREATE FUNCTION</br>
+      - CREATE INDEX</br>
+      - CREATE PROCEDURE</br>
+      - CREATE TABLE</br>
+      - CREATE TRIGGER</br>
+      - CREATE VIEW</br></br>
+
+    <b>Perubahan (ALTER & RENAME)</b></br></br>
+      - ALTER DATABASE</br>
+      - ALTER FUNCTION</br>
+      - ALTER PROCEDURE</br>
+      - ALTER TABLE</br>
+      - ALTER VIEW</br>
+      - RENAME TABLE</br></br>
+
+    <b>Penghapusan (DROP)</b></br></br>
+      - DROP DATABASE</br>
+      - DROP FUNCTION</br>
+      - DROP INDEX</br>
+      - DROP PROCEDURE</br>
+      - DROP TABLE</br>
+      - DROP TRIGGER</br>
+      - DROP VIEW
+			</div> 
+        </div>
+      </div>
+    </div>
+  <!-- container atas -->
+<!-- about -->
+  <div id="about">
+    <div class="container footer">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><img class="img-circle" src="assets/img/diri.jpg" width="200px">
+        <h2>Tentang Saya</h2>
+        <p> Hallo... Saya Dicky Febrian</br>
+          Saya adalah mahasiswa Universitas Muhammadiyah Surakarta, Jurusan Informatika angkatan 2017.</br>
+          semoga anda menikmati website saya ini.. terima kasih :)</br>
+          #sobatambyar</br>
+		Instagram : @inidickyfebrian</p>
+      </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <h2>Pesan Baru Para Subs</h2>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" value="Email kamu">
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Subscribe </button>
+            </div>
+          </div>
+          <div id="icon"><i class="fa fa-instagram"></i><i class="fa fa-facebook-official"></i><i class="fa fa-twitter-square"></i><i class="fa fa-youtube-play"></i></div>
+        </div>
+    </div>
+  </div>
+  <!-- about -->
+
+  <!-- kaki -->
+  <div id="kaki">
+    <div class="container">
+	    <h5 class="text-center">Dckysonnn © 2019</h5>
+
+    </div>
+  </div>
+  <!-- kaki -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+
+</html>

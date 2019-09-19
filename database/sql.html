@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container" id="navbar">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation"><a href="index.html"><font color='White'><b>HOME</b></font></a></li>
+          <li role="presentation"><a href="#about"><font color='White'><b>ABOUT</b></font></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar -->
+
+  <!-- jumbotron -->
+  <div id="background">
+    <div class="jumbotron">
+      <h1><font face="Swis721 BlkEx BT">Selamat Datang</font></h1>
+      <p><font face="Swis721 BlkEx BT">Learning is passion with you</font></p>
+    </div>
+  </div>
+  <!-- jumbotron -->
+
+  <!-- container atas -->
+  <div id="home">
+    <div class="isi">
+      <div class="container atas">
+        <h1><font color='red' face='Swis721 BlkEx BT'>STRUCTURED QUERY LANGUAGE</font></h1>
+        <div class="row">
+			<p class="text-left"><strong>Structured Query Language</strong> atau biasa disebut SQL adalah suatu bahasa khusus yang digunakan untuk mengakses data-data yang 
+			ada di dalam sebuah database relasional.</br>
+			SQL adalah bahasa komputer yang menggunakan standar ANSI (American Nasional Standard Institute) yang dipakai dalam manajemen database relasional.
+			Dengan SQL atau bisa juga disebut query kita dapat memanipulasi atau mengedit database sesuai yang kita kehendaki. seperti menjalankan query untuk mengambil data, 
+			menambah data, memperbarui data dan menghapus data.</br></br>
+			Sampai sekarang hampir keseluruhan server database maupun software – software database lainnya mengenal serta mampu mengartikan bahasa SQL.
+			oleh karenanya belajar bahasa SQL sangat penting bagi yang bergelut dibidang IT maupun yang selalu bersinggungan dengan database relasional.</p>
+
+				<ol class="text-left" type="1">
+
+          <li><strong>Create Database</strong></li></br>
+					<p>Digunakan untuk membuat database baru.</br>
+					Syntax dasar:</br>
+					CREATE DATABASE database_nama</br>
+					Contoh:</br>
+					CREATE DATABASE databaseku</p></br>   
+            
+					<li><strong>Select</strong></li></br>
+          Perintah SELECT merupakan perintah dasar SQL yang di gunakan untuk memilih data dari database. 
+          Data yang di kembalikan di simpan dalam tabel yang di sebut result-set.</br></br>
+    
+          Contoh :</br>
+          <font size="3"><b>SELECT</b> nis, nama, alamat FROM siswa;</font></br>
+          atau</br>
+          <font size="3"><b>SELECT</b> * FROM siswa;</font></br>
+          Perintah pertama di atas di gunakan untuk menyeleksi kolom NIS, NAMA, dan ALAMAT dari tabel SISWA. 
+          sedangkan perintah kedua di gunakan untuk menyeleksi semua kolom dari tabel SISWA</p></br>
+		
+					<li><strong>Where</strong></li>
+          Perintah WHERE merupakan perintah dasar SQL yang di gunakan untuk mem-filter hasil SELECT dengan mengekstrak 
+          record yang memenuhi persyaratan tertentu.</br></br>
+    
+          Contoh :</br>
+          <font size="3">SELECT kolom1, kolom2, ... FROM nama_tabel <b>WHERE</b> kondisi;</br>
+          SELECT nis, nama FROM siswa <b>WHERE</b> alamat='Klaten'</font>;</br>
+          Perintah di atas di gunakan untuk mengekstraksi data (NIS dan NAMA) dari tabel SISWA dengan kondisi “field ALAMAT berisi nilai KLATEN”. 
+          Perintah di atas menggunakan operator sama dengan (‘=’), untuk operator lain yang di dukung perintah WHERE, lihat tabel di bawah ini.</p></br>
+
+					<li><strong>Perintah (operator) AND, OR dan NOT</strong></li>
+          </br>
+          Operator AND, OR dan NOT merupakan perintah dasar SQL yang biasanya di kombinasikan dengan perintah WHERE. Ketiganya di gunakan untuk 
+          mem-filter record berdasarkan suatu kondisi, operator AND akan menampilkan record apabila semua kondisi bernilai TRUE, operator OR 
+          akan menampilkan record apabila salah satu kondisi bernilai TRUE, sedangkan operator NOT akan menampilkan record apabila semua kondisi 
+          bernilai FALSE.</br></br>
+          
+          Contoh AND :</br>
+          <font size="3">SELECT nis, nama FROM siswa WHERE alamat='Klaten' <b>AND</b> tahun_lahir='2001'</font></br>
+          Perintah di atas akan menampilkan record NIS dan NAMA dari tabel SISWA dengan ALAMAT di KLATEN dan TAHUN_LAHIR “2001”, 
+          artinya record siswa yang lahir di tahun “2001” namun tidak beralamat di “Klaten: atau siswa yang beralamat di “KLATEN” 
+          namaun lahir bukan pada tahun “2001” tidak akan di tampilkan.</br></br>
+
+          Contoh OR :</br>
+          <font size="3">SELECT nis, nama FROM siswa WHERE alamat='Klaten' <b>OR</b> alamat='Bandung'</font></br>
+          Perintah di atas akan menampilkan record NIS dan NAMA dari tabel SISWA dengan ALAMAT di “Klaten” atau di “Bandung”,</br> 
+          artinya record siswa yang beralamat di “Klaten” dan di “Bandung” saja yang akan di tampilkan.</br></br>
+
+
+          Contoh NOT :</br>
+          <font size="3">SELECT nis, nama FROM siswa WHERE <b>NOT</b> alamat='Klaten'</font></br>
+          Perintah di atas akan menampilkan semua record NIS dan NAMA dari tabel SISWA kecuali record siswa yang beralamat di ‘Klaten’.</p></br>
+    
+          <li><strong>ORDER BY</strong></li>
+          <p></br>
+
+            Perintah ORDER BY merupakan perintah dasar SQL yang di gunakan untuk mengurutkan result-set dalam pengurutan ‘ascending’ 
+            atau ‘descending’. Secara default perintah ORDER BY menampilkan record dalam pengurutan ‘ascending’ (‘ASC’). Untuk mengurutkan 
+            ‘descending’, gunakan kata kunci ‘DESC’.</br></br>
+      
+            Contoh</br>
+            <font size="3">SELECT nis, nama FROM siswa <b>ORDER BY</b> tahun_lahir DESC;</font></br>
+            Perintah di atas akan menampilkan result-set berupa field NIS dan NAMA dari tabel SISWA dengan di urutkan berdasarkan 
+            TAHUN_LAHIR secara descending, artinya tahun lahir akan di tampilkan mulai dari yang terbesar (siswa termuda) hingga terkecil 
+            (siswa termuda).</p></br>
+
+					<li><strong>Select DISTINCT</strong></li>
+          <p></br>
+
+            Perintah SELECT DISTINCT merupakan perintah dasar SQL yang di gunakan untuk mengembalikan hanya nilai yang berbeda dari dalam 
+            sebuah tabel, dengan kata lain semua record duplikat (record dengan nilai yang sama) yang terdapat pada tabel akan di anggap sebagai 
+            satu record/nilai.</br></br>
+            
+            Contoh :</br>
+            <font size="3"><b>SELECT DISTINCT</b> alamat FROM siswa;</font></br>
+            Perintah di atas di gunakan untuk menampilkan kolom ALAMAT dari tabel SISWA dengan mengabaikan nilai yang duplikat, 
+            misalnya terdapat 10 siswa dengan alamat ‘Jogja’, 15 siswa dengan alamat ‘Bandung’, 20 siswa dengan alamat ‘Bogor’, 
+            dan seterusnya, result-set hanya menampilkan daftar alamat di antaranya ‘Jogja’, ‘Bandung’, dan ‘Bogor’ masing-masing 1 record.</p></br>
+			
+					<li><strong>INSERT INTO</strong></li>
+          <p></br>
+            Dalam SQL, perintah INSERT INTO merupakan perintah dasar SQL bagian dari perintah untuk DML (Data Manipulation Language) 
+            Saya asumsikan Anda telah faham perbedaan DDL, DCL, dan DML. Perintah INSERT INTO dapat di gunakan untuk menambahkan record 
+            baru ke dalam tabel.</br></br>
+      
+            Contoh :</br>
+            <font size="3"><b>INSERT INTO</b> siswa VALUES ('12345', 'Dicky', 'Klaten');</font></br>
+            Perintah di atas di gunakan untuk menambahkan nilai ‘12345’, ‘Dicky’ dan ‘Klaten’ pada tabel SISWA, pastikan urutan nilai 
+            (‘values’) dalam urutan yang sama seperti kolom dalam tabel. Jika urutan nilai tidak sama dengan urutan kolom pada tabel, 
+            maka sintaks INSERT INTO yang di gunakan adalah sebagai berikut:</br></br>
+
+            <li><strong>MAX</strong></li>
+            <p></br>
+              Fungsi MAX() merupakan perintah dasar SQL yang di gunakan untuk mendapatkan nilai terbesar dari suatu kolom, 
+              seperti halnya fungsi MIN() Anda dapat menerapkannya pada kolom ‘harga’, ‘nilai’, ‘qty’ atau kolom yang semisal dengan itu.</br></br>
+        
+              Contoh :</br>
+              <font size="3">SELECT <b>MAX(nama_kolom)</b> FROM nama_tabel WHERE kondisi;
+              SELECT <b>MAX(harga)</b> FROM barang WHERE kategori='atk';</font></br>
+              Perintah di atas di gunakan untuk mencari nilai tertinggi dari kolom ‘harga’ di tabel BARANG dengan KATEGORI ‘atk’ 
+              (Alat Tulis dan Kertas).</p></br>
+
+              <li><strong>MIN</strong></li>
+              <p></br>
+                Fungsi MIN() merupakan perintah dasar SQL yang di gunakan untuk mendapatkan nilai terkecil dari suatu kolom, Anda dapat 
+                menerapkannya pada kolom ‘harga’, ‘nilai’, ‘qty’ atau kolom yang semisal dengan itu, berbeda dengan perintah ORDEY BY, fungsi MIN() 
+                hanya menampilkan satu record saja yang memenuhi kriteria yang Anda tentukan.</br></br>
+          
+                Contoh :</br>
+                <font size="3">SELECT <b>MIN(harga)</b> FROM barang WHERE kategori='atk';</font></br>
+                Perintah di atas di gunakan untuk mencari nilai terendah dari kolom ‘harga’ di tabel BARANG dengan KATEGORI ‘atk’ 
+                (Alat Tulis dan Kertas).</p></br>
+
+                <li><strong>UPDATE</strong></li>
+                <p></br>
+                  Perintah UPDATE merupakan perintah dasar SQL yang di gunakan untuk memperbarui atau mengubah nilai suatu record berdasarkan 
+                  kriteria tertentu.</br></br>
+            
+                  Contoh  :</br>
+                  <font size="3"><b>UPDATE</b> siswa SET nama = 'Anton', alamat = 'Bandung' WHERE nim = '12345';</font></br>
+                  Perintah di atas di gunakan untuk memperbarui kolom NAMA menjadi ‘Anton’ dan kolom ALAMAT menjadi ‘Bandung’ pada record 
+                  dengan NIM ‘12345’ (ingat sebelumnya NIM ‘12345’ di gunakan oleh siswa bernama ‘Dicky’ yang beralamat di ‘Klaten’, sebut saja 
+                  data tersebut keliru dan harus di perbarui).</p></br>
+
+                  <li><strong>DELETE</strong></li>
+                  <p></br>
+                  Hampir sama dengan perintah UPDATE, perintah DELETE juga merupakan perintah dasar SQL yang di gunakan untuk menghapus nilai 
+                  suatu record berdasarkan kriteria tertentu.</br></br>
+              
+                  Contoh :</br>
+                  <font size="3"><b>DELETE</b> FROM siswa WHERE nim = '12345';</font></br>
+                  Perintah di atas di gunakan untuk menghapus record dengan NIM ‘12345’, ingat bahwa NIM tersebut di gunakan oleh siswa bernama 
+                  ‘Ahmad’ (sebelumnya bernama ‘Dicky’) dan dengan di eksekusinya perintah DELETE ini maka record tersebut akan terhapus.</p></br>
+
+                  <li><strong>COUNT</strong></li>
+                  <p></br>
+                    Fungsi COUNT() merupakan perintah dasar SQL yang di gunakan untuk mendapatkan jumlah hitungan record yang memenuhi suatu kriteria.</br></br>
+              
+                    Contoh :</br>
+                    <font size="3">SELECT <b>COUNT(id)</b> FROM barang WHERE kategori='atk';</font></br>
+                    Perintah di atas di gunakan untuk mencari tahu jumlah hitungan record pada tabel BARANG yang memenuhi kriteria/kondisi yaitu 
+                    record dengan KATEGORI ‘atk’ (Alat Tulis dan Kertas)</p></br>
+
+                    <li><strong>AVG ( AVERAGE )</strong></li>
+                    <p></br>
+                      Fungsi AVG() merupakan perintah dasar SQL yang di gunakan untuk mendapatkan rata-rata record yang memenuhi suatu kriteria, 
+                      tentunya nilai pada kolom harus numerik.</br></br>
+                
+                      Contoh :</br>
+                      <font size="3">SELECT <b>AVG(harga)</b> FROM barang WHERE kategori='atk';</font></br>
+                      Perintah di atas di gunakan untuk mencari tahu HARGA rata-rata pada tabel BARANG yang memenuhi kriteria/kondisi yaitu record 
+                      dengan KATEGORI ‘atk’ (Alat Tulis dan Kertas)</p></br>
+
+                      <li><strong>SUM</strong></li>
+                      <p></br>
+                        Fungsi SUM() merupakan perintah dasar SQL yang di gunakan untuk mendapatkan jumlah record yang memenuhi suatu kriteria, 
+                        tentunya nilai pada kolom harus numerik.</br></br>
+                  
+                        Contoh :</br>
+                        <font size="3">SELECT <b>SUM(qty)</b> FROM barang WHERE kategori='atk';</font></br>
+                        Perintah di atas di gunakan untuk mencari tahu jumlah kuantitas (‘qty’) pada tabel BARANG yang memenuhi kriteria/kondisi 
+                        yaitu record dengan KATEGORI ‘atk’ (Alat Tulis dan Kertas).</p></br>
+
+                        <li><strong>INNER JOIN</strong></li>
+                        <p></br>
+                          INNER JOIN merupakan perintah dasar SQL yang di gunakan untuk menggabungkan beberapa tabel dan mengambil nilai yang cocok 
+                          (identik) di antara kedua tabel tersebut.</br></br>
+                    
+                          Contoh :</br>
+                          <font size="3">SELECT pesanan.id_pesanan, pelanggan.nama FROM pesanan <b>INNER JOIN</b> pelanggan ON pesanan.id_pelanggan = 
+                          pelanggan.id_pelanggan;</font></br>
+                          Perintah di atas akan menampilkan kolom ID_PESANAN dari tabel PESANAN dan kolom NAMA dari tabel PELANGGAN yang memenuhi kriteria 
+                          yaitu ID_PELANGGAN pada tabel PESANAN yang sama dengan ID_PELANGGAN pada tabel PELANGGAN.</p></br>
+
+                          <li><strong>LEFT JOIN</strong></li>
+                          <p></br>
+                            LEFT JOIN merupakan perintah dasar SQL yang di gunakan untuk menggabungkan beberapa tabel dan mengambil nilai yang 
+                            cocok (identik) di antara kedua tabel tersebut dan nilai lain dari tabel pada ruas kiri meskipun tak ada nilai yang cocok 
+                            dengan tabel pada ruas kanan.</br></br>
+                      
+                            Contoh :</br>
+                            <font size="3">SELECT pelanggan.nama, pesanan.barang_pesanan FROM pelanggan <b>LEFT JOIN</b> pesanan ON pesanan.id_pelanggan = 
+                            pelanggan.id_pelanggan;</font></br>
+                            Perintah di atas akan menampilkan semua nilai kolom NAMA dari tabel PELANGGAN,  yang memenuhi kriteria yaitu ID_PELANGGAN pada 
+                            tabel PESANAN yang sama dengan ID_PELANGGAN pada tabel PELANGGAN.</p></br>
+				</ol>
+			</div> 
+        </div>
+      </div>
+    </div>
+  <!-- container atas -->
+<!-- about -->
+  <div id="about">
+    <div class="container footer">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><img class="img-circle" src="assets/img/diri.jpg" width="200px">
+        <h2>Tentang Saya</h2>
+        <p> Hallo... Saya Dicky Febrian</br>
+          Saya adalah mahasiswa Universitas Muhammadiyah Surakarta, Jurusan Informatika angkatan 2017.</br>
+          semoga anda menikmati website saya ini.. terima kasih :)</br>
+          #sobatambyar</br>
+		Instagram : @inidickyfebrian</p>
+      </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <h2>Pesan Baru Para Subs</h2>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" value="Email Kamu">
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Subscribe </button>
+            </div>
+          </div>
+          <div id="icon"><i class="fa fa-instagram"></i><i class="fa fa-facebook-official"></i><i class="fa fa-twitter-square"></i><i class="fa fa-youtube-play"></i></div>
+        </div>
+    </div>
+  </div>
+  <!-- about -->
+
+  <!-- kaki -->
+  <div id="kaki">
+    <div class="container">
+	    <h5 class="text-center">Dckysonnn © 2019</h5>
+
+    </div>
+  </div>
+  <!-- kaki -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+
+</html>

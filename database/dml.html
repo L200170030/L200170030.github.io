@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container" id="navbar">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation"><a href="index.html"><font color='White'><b>HOME</b></font></a></li>
+          <li role="presentation"><a href="#about"><font color='White'><b>ABOUT</b></font></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar -->
+
+  <!-- jumbotron -->
+  <div id="background">
+    <div class="jumbotron">
+      <h1><font face="Swis721 BlkEx BT">Selamat Datang</font></h1>
+      <p><font face="Swis721 BlkEx BT">Learning is passion with you</font></p>
+    </div>
+  </div>
+  <!-- jumbotron -->
+
+  <!-- container atas -->
+  <div id="home">
+    <div class="isi">
+      <div class="container atas">
+        <h1><font color='red' face='Swis721 BlkEx BT'>DATA MANIPULATION LANGUAGE</font></h1>
+        <div class="row">
+      <p class="text-left"><strong>Data Manipulation Language (DML)</strong> merupakan kumpulan perintah SQL yang digunakan untuk proses pengolahan isi 
+        data di dalam table seperti memasukkan, 
+        merubah dan menghapus isi data - dan tidak terkait dengan perubahan struktur dan definisi tipe data dari objek database.</br></br>
+
+				<strong>DML</strong> sendiri adalah kumpulan perintah SQL yang berhubungan dengan pekerjaan mengolah data di dalam table - dan tidak 
+				terkait dengan perubahan struktur dan definisi tipe data dari objek database seperti table, column, dan sebagainya.</br></br>
+
+				Contoh DML : Mengambil Seluruh Row Data dari table TB_KARYAWAN</br>
+
+				SELECT * FROM tb_karyawan</br></br>
+
+
+				Contoh DML : Memasukkan data ke dalam tabel tb_karyawan</br>
+
+				INSERT INTO tb_karyawan(</br>
+					kode_cabang,</br>
+					kode_karyawan,</br>
+					nama_depan,</br>
+					nama_belakang,</br>
+					jenis_kelamin) </br>
+				VALUES <b>('ccd-001','kor-001','Tian','Vincent','Laki-laki');</b></br></br>
+        Beberapa daftar Perintah DML</br>
+        <b>
+				-> CALL</br>
+				-> DELETE</br>
+				-> DO</br>
+				-> HANDLER</br>
+				-> INSERT</br>
+				-> LOAD DATA INFILE</br>
+				-> REPLACE</br>
+				-> SELECT</br>
+				-> TRUNCATE</br>
+				-> UPDATE</br></b></p>
+			</div> 
+        </div>
+      </div>
+    </div>
+  <!-- container atas -->
+<!-- about -->
+  <div id="about">
+    <div class="container footer">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><img class="img-circle" src="assets/img/diri.jpg" width="200px">
+        <h2>Tentang Saya</h2>
+        <p> Hallo... Saya Dicky Febrian</br>
+          Saya adalah mahasiswa Universitas Muhammadiyah Surakarta, Jurusan Informatika angkatan 2017.</br>
+          semoga anda menikmati website saya ini.. terima kasih :)</br>
+          #sobatambyar</br>
+		Instagram : @inidickyfebrian</p>
+      </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <h2>Pesan Baru Para Subs</h2>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" value="Email Kamu">
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Subscribe </button>
+            </div>
+          </div>
+          <div id="icon"><i class="fa fa-instagram"></i><i class="fa fa-facebook-official"></i><i class="fa fa-twitter-square"></i><i class="fa fa-youtube-play"></i></div>
+        </div>
+    </div>
+  </div>
+  <!-- about -->
+
+  <!-- kaki -->
+  <div id="kaki">
+    <div class="container">
+	    <h5 class="text-center">Dckysonnn © 2019</h5>
+
+    </div>
+  </div>
+  <!-- kaki -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+
+</html>
